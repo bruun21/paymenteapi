@@ -5,13 +5,15 @@ import java.math.BigDecimal;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.paymentapi.challenge.model.Payment;
+import com.paymentapi.challenge.enums.PaymentMethod;
 
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
+@Getter
 public class PaymentRequest {
     @NotNull
     private Integer codigoDebito;
@@ -23,7 +25,7 @@ public class PaymentRequest {
     private String cnpj;
 
     @NotNull
-    private Payment.PaymentMethod metodo;
+    private PaymentMethod metodo;
 
     @Size(min = 13, max = 19)
     private String numeroCartao;

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import org.hibernate.annotations.Check;
 
+import com.paymentapi.challenge.enums.PaymentMethod;
 import com.paymentapi.challenge.enums.PaymentStatus;
 
 import jakarta.persistence.Entity;
@@ -51,9 +52,5 @@ public class Payment {
     private PaymentStatus status = PaymentStatus.PENDENTE_PROCESSAMENTO;
 
     private boolean ativo = true;
-
-    public enum PaymentMethod {
-        BOLETO, PIX, CARTAO_CREDITO, CARTAO_DEBITO
-    }
 
 }
