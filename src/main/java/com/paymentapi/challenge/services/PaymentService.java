@@ -31,7 +31,8 @@ public class PaymentService {
     }
 
     private void validaCartao(Payment payment) {
-        if ((payment.getMetodo() == PaymentMethod.CARTAO_CREDITO || payment.getMetodo() == PaymentMethod.CARTAO_CREDITO)
+        if (List.of(PaymentMethod.CARTAO_CREDITO, PaymentMethod.CARTAO_DEBITO).stream()
+                .anyMatch(metodo -> metodo.equals(payment.getMetodo()))
                 && ObjectUtils.isEmpty(payment.getNumeroCartao())) {
             throw new IllegalStateException("Número do cartão é obrigatório para este método de pagamento");
         }
